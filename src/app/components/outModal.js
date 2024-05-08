@@ -5,11 +5,11 @@ const OutModal = ({ registries, isOpen, onClose }) => {
 
     const [fechaUsuario, setFechaUsuario] = useState('');
 	  const [horaUsuario, setHoraUsuario] = useState('');
-	  const [selectedOption, setSelectedOption] = useState();
-    const [selectedEmployeeId, setSelectedEmployeeId] = useState();
+	  const [selectedOption, setSelectedOption] = useState('');
+    const [selectedEmployeeId, setSelectedEmployeeId] = useState('');
 
     const handleChangeFecha = (event) => {
-		setFechaUsuario(event.target.value);
+		  setFechaUsuario(event.target.value);
 	};
 
 	const handleChangeHora = (event) => {
@@ -23,24 +23,23 @@ const OutModal = ({ registries, isOpen, onClose }) => {
             setSelectedOption('');
             setSelectedEmployeeId('');
                 }
-    },[onClose])
+    },[onClose]);
 
 
 	const handleSelectChange = (event) => {
-		setSelectedOption(event.target.value)
-        const selectedRegistry = registries.find(registry => registry.name === event.target.value);
-        if (selectedRegistry) {
-            setSelectedEmployeeId(selectedRegistry.id);
+		setSelectedOption(event.target.value);
+    const selectedRegistry = registries.find(registry => registry.name === event.target.value);
+    if (selectedRegistry) {
+          setSelectedEmployeeId(selectedRegistry.id);
         } 
 	};
 
 
-    const calcularDiferencia = () => {
+  const calcularDiferencia = () => {
 		const nombreSeleccionado = selectedOption;
-
 		const registroSeleccionado = registries.find(
 			(registry) => registry.name === nombreSeleccionado
-		);
+	  );
 
 		if (!registroSeleccionado) {
 			console.log(
@@ -53,7 +52,7 @@ const OutModal = ({ registries, isOpen, onClose }) => {
 		const startDate = new Date(registroSeleccionado.startDate);
 
     if (fechaHoraUsuario < startDate) {
-      alert("La fecha seleccionada es menor a la de ingreso");
+      alert("Debe seleccionar un egreso mayor al ingreso");
       return false;
   }else {
 		const diferenciaEnMilisegundos = fechaHoraUsuario - startDate;

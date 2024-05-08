@@ -4,9 +4,9 @@ import mongoose from 'mongoose';
 const OutModal = ({ registries, isOpen, onClose }) => {
 
     const [fechaUsuario, setFechaUsuario] = useState('');
-	const [horaUsuario, setHoraUsuario] = useState('');
-	const [selectedOption, setSelectedOption] = useState("");
-    const [selectedEmployeeId, setSelectedEmployeeId] = useState()
+	  const [horaUsuario, setHoraUsuario] = useState('');
+	  const [selectedOption, setSelectedOption] = useState('');
+    const [selectedEmployeeId, setSelectedEmployeeId] = useState('');
 
     const handleChangeFecha = (event) => {
 		setFechaUsuario(event.target.value);
@@ -36,8 +36,7 @@ const OutModal = ({ registries, isOpen, onClose }) => {
 
 
 	const manejarIngreso = () => {
-        handleUpdateRegistry();
-        
+        handleUpdateRegistry();      
 	};
 
 

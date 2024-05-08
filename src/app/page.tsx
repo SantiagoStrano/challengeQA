@@ -2,7 +2,7 @@
 import Image from "next/image";
 import React, { useEffect, useState } from 'react';
 import InModal from "../app/components/inModal";
-import OutModal  from "../app/components/inModal";
+import OutModal  from "../app/components/OutModal";
 
 
 
@@ -16,21 +16,21 @@ export default function Home() {
 
   const handleOpenInModal = () => {
       setIsInModalOpen(true);
-  };
+    };
 
   const handleCloseInModal = () => {
       setIsInModalOpen(false);
       fetchRegistries()
-  };
+    };
 
   const handleOpenOutModal = () => {
       setIsOutModalOpen(true);
-  };
+    };
 
   const handleCloseOutModal = () => {
       setIsOutModalOpen(false);
       fetchRegistries();
-  };
+    };
 
   const fetchRegistries = async () => {
 		await fetch('/api/registries')
@@ -43,7 +43,7 @@ export default function Home() {
                 setOffEmployees(offEmployees);
                 console.log(activeEmployees)
             })               
-	};
+    };
     useEffect(() => {
 		fetchRegistries()
 	}, []);
@@ -60,7 +60,7 @@ export default function Home() {
 
         <InModal registries={offEmployees} isOpen={isInModalOpen} onClose={handleCloseInModal} />
 
-         <OutModal registries={activeEmployees} isOpen={isOutModalOpen} onClose={handleCloseOutModal} /> 
+        <OutModal registries={activeEmployees} isOpen={isOutModalOpen} onClose={handleCloseOutModal} /> 
           
       </div>
 

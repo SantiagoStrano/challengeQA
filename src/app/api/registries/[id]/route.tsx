@@ -15,19 +15,6 @@ export async function GET(_request:any, { params }: { params: { id: number }} ) 
 }
 
 
-
-/* export async function PUT(req:any, { params }: { params: { id: number }} ) {
-		let id  = params.id;
-		try {
-			await connectMongo();
-			const registry = await Registry.updateOne({ _id: id  }, { $set:req.body} );
-			console.log(registry);
-			return NextResponse.json({ data: registry });
-		} catch (error) {
-			return NextResponse.json({ error });
-		}
-} */
-
 export async function PUT(request: any, { params }: { params: { id: ObjectId } }) {
 	const { id } = params;
 	try {
