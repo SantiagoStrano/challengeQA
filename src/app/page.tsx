@@ -2,7 +2,7 @@
 import Image from "next/image";
 import React, { useEffect, useState } from 'react';
 import InModal from "../app/components/inModal";
-import OutModal  from "../app/components/OutModal";
+import OutModal  from "../app/components/outModal";
 
 
 
